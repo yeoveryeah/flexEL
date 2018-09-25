@@ -26,9 +26,9 @@ Class names are in upper Camel Case (a.k.a PascalCase). E.g., `InnerEL`, `InnerE
 
 ### R Function Argument / Local Variable Names
 
-1. Names of data inputs are in English letters, if it is a matrix, its name is a single upper case letter, otherwise, it is a single lower case letter. E.g., `X`, `Z`, `y`, `G`. [TODO: R version is using `delta` and `eps` rather than `deltas` and `epsilons` now, change the names in C++ version too.]
+1. Names of data inputs are in English letters, if it is a matrix, its name is a single upper case letter, otherwise, it is a single lower case letter. E.g., `X`, `Z`, `y`, `G`. [TODO: exported R functions are using `delta` and `eps` rather than `deltas` and `epsilons` now, change the names in C++ version too.]
 
-2. Names of model parameters are in greek letters and lower Camel Case, if it is a vector, currently it has an "s" at the end. E.g., `beta` in `mr.evalG`, `betaInit` in `mr.post`, `alpha` in `qr.evalG` and `omegas` in `logEL`. [TODO: rename `alpha` to `tau`?] [TODO: call it `omega`?] [TODO: qr.post takes multiple quantile values are in upper Camel Case, E.g., `BetaInit`]
+2. Names of model parameters are in greek letters and lower Camel Case, if it is a vector, currently it has an "s" at the end. E.g., `beta` in `mr.evalG`, `betaInit` in `mr.post`, `alpha` in `qr.evalG` and `omegas` in `logEL`. [TODO: rename `alpha` to `tau`?; exported R functions are using `omega` now, change this in C++ too; qr.post takes multiple quantile values are in upper Camel Case, E.g., `BetaInit`]
 
 3. Names of dimension inputs are in lower case only. E.g., `nsamp`, `nburn`. [TODO: change the name `nsamples` in C++ version too.]
 
@@ -47,7 +47,7 @@ Class names are in upper Camel Case (a.k.a PascalCase). E.g., `InnerEL`, `InnerE
 * ~~`evalEpsilons.R`: a wraper function for evaluating the residuals (location model, location-scale model)~~.
 * `omega.hat.R`: a wraper function to calculate the probability vector omega in a empirical likelihood setting (uncensored, censored). With censoring, an EM algorithm is used.
 * `omega.hat.EM.smooth.R`: to calculate the probability vector omega using the smoothed version of censored empirical likelihood.
-* `[mr,qr,mrls,qrls,mr_cens,qr_cens].post.R`: regular MWG posterior samplers. [TODO: combine these into the post_adapt samplers with `doAdapt` argument set to false.] [TODO: these qr models are able to take multiple quantile levels at the moment, remove this feature?]
+* `[mr,qr,mrls,qrls,mr_cens,qr_cens].post.R`: regular MWG posterior samplers. [TODO: combine these into the post_adapt samplers with `doAdapt` argument set to false; these qr models are able to take multiple quantile levels at the moment, remove this feature?]
 * `[mr,qr,mrls,qrls,mr_cens,qr_cens,mrls_cens,qrls_cens].post_adapt.R`: adaptive MWG posterior samplers.
 * `[mr_cens,qrls_cens].neglogEL.smooth.R`: smoothed censored empirical likeihood which can be directly used for optimization routine in R, such as `nlm` and `optim`. [TODO: other regression models.]
 * `hlm.R`: the HLM estimator by wang-et-al15 which works for censored data.
@@ -59,5 +59,5 @@ Class names are in upper Camel Case (a.k.a PascalCase). E.g., `InnerEL`, `InnerE
 
 ### TODO List
 * Aitken acceleration in C++
-* Mode-finding in uncensored case with gradient in C++
-* Adjusted G matrix in C++
+* Gradient of log EL without censoring in C++ for mode-finding
+* Adjusted G matrix option in C++

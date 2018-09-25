@@ -214,10 +214,6 @@ qrls_cens.neglogEL.smooth_R <- function(y, X, Z, deltas, tau, theta, s=10) {
     omegas <- oout$omegas
     weights <- oout$weights
     res <- -logEL.smooth_R(omegas,epsilons,deltas)
-    # gradlist <- mr.deltaG_R(y, X, beta)
-    # grad <- -logELCensgrad_R(omegas, deltas, epsilons, lambda, gradlist, weights) # negative gradient
-    # attr(res, "gradient") <- grad
-    # attr(res, "gradient") <- grad(-logEL.smooth_R,)
   }
   else {
     # TODO: if not converged, what should be the gradient...??
@@ -226,3 +222,4 @@ qrls_cens.neglogEL.smooth_R <- function(y, X, Z, deltas, tau, theta, s=10) {
   }
   return(res)
 }
+

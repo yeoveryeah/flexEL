@@ -6,6 +6,7 @@ source("../testthat/el-model.R")
 source("gen_eps.R")
 source("logEL_EMAC_R.R")
 source("smoothEL.R")
+source("mode-functions.R")
 
 # ---- 1-d problem ----
 n <- 200
